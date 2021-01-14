@@ -1,0 +1,16 @@
+mat-icon.icon-size52 {
+    font-size: 52px;
+    height: 52px;
+    width: 52px;
+}
+
+mat-icon.icon-size34 {
+    height: 34px;
+    width: 34px;
+    font-size: 34px;
+}
+
+.oscurato {
+    background-color: #4D4F5C;
+    color: #4D4F5C;
+}

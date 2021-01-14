@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~material-icons/iconfont/material-icons.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.container-app {
+    width: 414px;
+    height: 736px;
+    border: 6px solid #004C8A;
+    border-radius: 60px;
+    margin: 16px auto;
+    padding: 20px;
+    background: rgb(4, 66, 107);
+    background: linear-gradient(180deg, rgba(4, 66, 107, 1) 0%, rgba(255, 255, 255, 1) 20%);
+}
+
+.second-page {
+    background: rgb(4, 66, 107);
+    background: linear-gradient(180deg, rgba(4, 66, 107, 1) 0%, rgba(255, 255, 255, 1) 15%);
+}
+
+.container-object {
+    border: 1px solid black;
+    height: 110px;
+    margin: 14px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.shadow-object {
+    box-shadow: 6px 6px 3px #CECFD0;
+}
+
+mat-icon:focus {
+    outline: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer-disabled {
+    cursor: no-drop;
+}
+
+.pointer-cell {
+    cursor: cell;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.align-center-ver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-16 {
+    margin: 16px;
+}
+
+.p-r-0 {
+    padding-right: 0px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.f-22 {
+    font-size: 22px;
+}
+
+.f-24 {
+    font-size: 24px;
+}
+
+.mat-tab-label {
+    min-width: 116px!important;
+    padding: 0 16px!important;
+}

@@ -1,0 +1,34 @@
+<div class="container-app">
+    <div class="row justify-content-center">
+
+        <div class="col-12 text-center align-center-ver">
+            <mat-icon class="icon-size52">person </mat-icon>
+            <h3 class="account-title">
+                Welcome Back Mario
+            </h3>
+        </div>
+        <div class="col-12 m-16">
+            <div class="row">
+                <div class="col-5 text-center">
+                    <p class="f-20">Your balance</p>
+                </div>
+                <div class="col-5 text-right p-r-0">
+                    <p class="oscurato f-20">$ *********</p>
+                </div>
+                <div class="col-1">
+                    <mat-icon class="">visibility_off </mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-5 container-object shadow-object" *ngFor="let elem of listObject |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.url, 'pointer-disabled':!elem.url }" (click)='goTo(elem)'>
+
+            <mat-icon class="icon-size34">{{elem.icon}}</mat-icon>
+            <p class=" f-20">{{elem.title}}</p>
+        </div>
+
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

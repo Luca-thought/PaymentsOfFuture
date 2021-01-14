@@ -1,0 +1,32 @@
+<div class="container-app second-page">
+    <div class="row justify-content-center">
+
+        <div class="col-1 text-center align-center-ver pointer">
+            <mat-icon class="icon-size52" [routerLink]="['/']">keyboard_arrow_left </mat-icon>
+        </div>
+        <div class="col-11 text-center align-center-ver">
+            <h3 class="account-title">
+                Your CashBack
+            </h3>
+        </div>
+        <div class="col-12 text-center">
+            <p class="f-20">Earned To Date: $ 19.44</p>
+        </div>
+
+        <div class="col-12">
+            <p>Prefer</p>
+        </div>
+        <div class="col-5 container-object shadow-object" *ngFor="let elem of listObjectPrefer |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.url, 'pointer-disabled':!elem.url }" click='goTo(elem)'>
+
+            <mat-icon class="icon-size34">{{elem.icon}}</mat-icon>
+            <p class=" f-20">{{elem.title}}</p>
+        </div>
+        <div class="col-12">
+            <mat-tab-group mat-align-tabs=" center ">
+                <mat-tab label="Available">Content 1</mat-tab>
+                <mat-tab label="Earned">Content 2</mat-tab>
+                <mat-tab label="Expired">Content 3</mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
