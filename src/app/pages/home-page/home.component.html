@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-5 container-object shadow-object" *ngFor="let elem of listObject |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.url, 'pointer-disabled':!elem.url }" (click)='goTo(elem)'>
-
+            <p *ngIf="!!elem.url" class="new">NEW</p>
             <mat-icon class="icon-size34">{{elem.icon}}</mat-icon>
             <p class=" f-20">{{elem.title}}</p>
         </div>

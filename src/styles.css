@@ -4,7 +4,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .container-app {
     width: 414px;
-    height: 736px;
+    min-height: 778px;
     border: 6px solid #004C8A;
     border-radius: 60px;
     margin: 16px auto;
@@ -18,7 +18,8 @@
     background: linear-gradient(180deg, rgba(4, 66, 107, 1) 0%, rgba(255, 255, 255, 1) 15%);
 }
 
-.container-object {
+.container-object,
+.container-object-small {
     border: 1px solid black;
     height: 110px;
     margin: 14px;
@@ -27,12 +28,33 @@
     border-radius: 10px;
 }
 
+.container-object-small {
+    height: 150px;
+}
+
 .shadow-object {
     box-shadow: 6px 6px 3px #CECFD0;
 }
 
 mat-icon:focus {
     outline: 0;
+}
+
+mat-tab-body .mat-tab-body-content {
+    overflow-x: hidden;
+}
+
+.margin-back {
+    margin-right: -25px;
+    margin-left: -10px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 0px;
 }
 
 .pointer {
@@ -51,18 +73,54 @@ mat-icon:focus {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .align-center-ver {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.new {
+    /* transform: rotate(40deg); */
+    background-color: red;
+    align-self: end;
+    text-align: right;
+    position: absolute;
+    top: -14px;
+    right: -15px;
+    color: white;
+    padding: 6px;
+    font-weight: 600;
+    border: 1px solid red;
+    border-radius: 47px;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
 .m-16 {
     margin: 16px;
 }
 
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-r-l-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .p-r-0 {
     padding-right: 0px;
+}
+
+.f-14 {
+    font-size: 14px;
 }
 
 .f-20 {

@@ -13,19 +13,64 @@
             <p class="f-20">Earned To Date: $ 19.44</p>
         </div>
 
-        <div class="col-12">
-            <p>Prefer</p>
+        <div class="col-12 m-t-10">
+            <p class="bold f-16">Favorites</p>
         </div>
-        <div class="col-5 container-object shadow-object" *ngFor="let elem of listObjectPrefer |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.url, 'pointer-disabled':!elem.url }" click='goTo(elem)'>
+        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectPrefer |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.url, 'pointer-disabled':!elem.url }" click='goTo(elem)'>
 
-            <mat-icon class="icon-size34">{{elem.icon}}</mat-icon>
-            <p class=" f-20">{{elem.title}}</p>
+            <img class="img-prefer" src={{elem.icon}} />
+            <p class=" f-14">{{elem.percentual}} </p>
+            <p class=" f-14">{{elem.expired}}</p>
+        </div>
+        <div class="col-12 text-right" style="margin-top: 10px;">
+            <span>
+            <mat-icon class="pointer-cell">filter_alt</mat-icon>
+            </span>
         </div>
         <div class="col-12">
             <mat-tab-group mat-align-tabs=" center ">
-                <mat-tab label="Available">Content 1</mat-tab>
-                <mat-tab label="Earned">Content 2</mat-tab>
-                <mat-tab label="Expired">Content 3</mat-tab>
+                <mat-tab label="Available">
+                    <div class="row  margin-back">
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectAvaiable |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.percentual, 'pointer-disabled':!elem.percentual }" click='goTo(elem)'>
+                            <img class="img-prefer" src={{elem.icon}} />
+                            <p class=" f-14">{{elem.percentual}} </p>
+                            <p class=" f-14">{{elem.expired}}</p>
+                            <mat-icon *ngIf="!elem.added" style="margin-top: 14px;" (click)="added(elem)">add_circle_outline</mat-icon>
+                            <mat-icon *ngIf="!!elem.added" style="margin-top: 14px; color:green">check_circle_outline</mat-icon>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Earned">
+                    <div class="row  margin-back" *ngIf="listObjectSelected.length >0">
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectSelected |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.percentual, 'pointer-disabled':!elem.percentual }" click='goTo(elem)'>
+                            <img class="img-prefer" src={{elem.icon}} />
+                            <p class=" f-14">{{elem.percentual}} </p>
+                            <p class=" f-14">{{elem.expired}}</p>
+                            <mat-icon *ngIf="!!elem.added" style="margin-top: 14px; color:blue" (click)="remove(elem)">remove_circle_outline</mat-icon>
+                        </div>
+                    </div>
+                    <div class="row margin-back ">
+                        <div class="col-12 m-10 " *ngIf="listObjectSelected.length===0 ">
+                            <p class=" f-14 ">There are no selected offers </p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Expired ">
+                    <div class="row margin-back " *ngIf="listObjectExpired.length>0">
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectExpired |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.percentual, 'pointer-disabled':!elem.percentual }" click='goTo(elem)'>
+
+                            <img class="img-prefer" src={{elem.icon}} />
+                            <p class=" f-14">{{elem.percentual}} </p>
+                            <p class=" f-14">{{elem.expired}}</p>
+
+                        </div>
+                    </div>
+                    <div class="row margin-back" *ngIf="listObjectExpired.length ===0">
+                        <div class="col-12 m-10 ">
+                            <p class=" f-14">There are no offers expired </p>
+                        </div>
+                    </div>
+                </mat-tab>
             </mat-tab-group>
         </div>
     </div>

@@ -14,3 +14,11 @@ mat-icon.icon-size34 {
     background-color: #4D4F5C;
     color: #4D4F5C;
 }
+
+.img-prefer {
+    margin-bottom: 14px;
+    margin-top: 8px;
+    margin-left: 4px;
+    /* margin: 14px auto; */
+    height: 22px;
+}
