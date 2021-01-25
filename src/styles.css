@@ -5,17 +5,10 @@
 .container-app {
     width: 414px;
     min-height: 778px;
-    border: 6px solid #004C8A;
+    border: 6px solid white;
     border-radius: 60px;
     margin: 16px auto;
     padding: 20px;
-    background: rgb(4, 66, 107);
-    background: linear-gradient(180deg, rgba(4, 66, 107, 1) 0%, rgba(255, 255, 255, 1) 20%);
-}
-
-.second-page {
-    background: rgb(4, 66, 107);
-    background: linear-gradient(180deg, rgba(4, 66, 107, 1) 0%, rgba(255, 255, 255, 1) 15%);
 }
 
 .container-object,
@@ -81,6 +74,13 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+button {
+    border: none;
+    border-color: white;
+    background-color: white;
+    cursor: pointer;
 }
 
 .new {

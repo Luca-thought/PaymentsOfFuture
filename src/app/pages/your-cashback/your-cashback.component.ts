@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map,startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-your-cashback',
@@ -7,11 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./your-cashback.component.css']
 })
 export class YourCashback {
-  title = 'payments-of-future';
-
 
   listObjectPrefer = [{
-    title : 'Transactions List',
+    search : 'abercrombie',
     icon : 'assets/abercrombie.png',
     percentual: '10%',
     expired : '2 days ago',
@@ -19,7 +19,7 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'Balance detail',
+    search : 'airbnb',
     icon : 'assets/Airbnb.png',
     percentual: '5%',
     expired : '5 days ago',
@@ -27,7 +27,7 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'New Transfer',
+    search : 'footlocker',
     icon : 'assets/footlocker.png',
     percentual: '-',
     expired : 'Not avaiable',
@@ -36,7 +36,7 @@ export class YourCashback {
   }];
 
   listObjectAvaiable = [{
-    title : 'Transactions List',
+    search : 'abercrombie',
     icon : 'assets/abercrombie.png',
     percentual: '10%',
     expired : '2 days ago',
@@ -44,7 +44,7 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'Balance detail',
+    search : 'airbnb',
     icon : 'assets/Airbnb.png',
     percentual: '5%',
     expired : '5 days ago',
@@ -52,15 +52,15 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'New Transfer',
+    search : 'colemar',
     icon : 'assets/colemar.png',
-    percentual: '3',
+    percentual: '3%',
     expired : '5 days ago',
     order: 3,
     added: false
   },
   {
-    title : 'Transactions List',
+    search : 'ihg',
     icon : 'assets/IHG.png',
     percentual: '3%',
     expired : '20 days ago',
@@ -68,7 +68,7 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'Balance detail',
+    search : 'coop',
     icon : 'assets/coop.png',
     percentual: '5%',
     expired : '30 days ago',
@@ -76,34 +76,54 @@ export class YourCashback {
     added: false
   },
   {
-    title : 'New Transfer',
-    icon : 'assets/terranova.png',
+    search : 'carrefour',
+    icon : 'assets/carre.png',
     percentual: '2%',
     expired : '60 days ago',
     order: 6,
     added: false
   }];
 
-  listObjectExpired = [];
+  listObjectExpired = [{
+    search : 'terranova',
+    icon : 'assets/terranova.png',
+    percentual: '2%',
+    expired : '10 days ago',
+    order: 6,
+    added: false
+  }];
   listObjectSelected =[];
+  valueFilter = '';
+
 
  constructor() {
+
+
   }
 
-  added(elem){
+  added(elem,type){
     elem.added = true;
     this.listObjectSelected.push(elem);
-    for(let i of this.listObjectPrefer){
-      if(i.icon === elem.icon){
-        i.added = true;
+    if(type ==='avalaible'){
+      for(let i of this.listObjectPrefer){
+        if(i.icon === elem.icon){
+          i.added = true;
+        }
+      }
+    } else if(type === 'prefer'){
+      for(let i of this.listObjectAvaiable){
+        if(i.icon === elem.icon){
+          i.added = true;
+        }
       }
     }
+
   }
 
   remove(elem){
     elem.added = false;
     this.listObjectSelected.forEach((element,index)=>{
-      if(element.added === false) {this.listObjectSelected.splice(index,1)};
+      if(element.icon === elem.icon) {this.listObjectSelected.splice(index,1)};
    });
 
     for(let i of this.listObjectPrefer){
@@ -111,6 +131,13 @@ export class YourCashback {
         i.added = false;
       }
     }
+    for(let i of this.listObjectAvaiable){
+      if(i.icon === elem.icon){
+        i.added = false;
+      }
+    }
   }
+
+
 
 }
