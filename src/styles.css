@@ -4,8 +4,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .container-app {
     width: 414px;
-    min-height: 778px;
-    border: 6px solid white;
+    min-height: 820px;
+    border: 6px solid black;
     border-radius: 60px;
     margin: 16px auto;
     padding: 20px;

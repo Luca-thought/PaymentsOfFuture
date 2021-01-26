@@ -21,14 +21,14 @@
             <img class="img-prefer" src={{elem.icon}} />
             <p class=" f-14">{{elem.percentual}} </p>
             <p class=" f-14">{{elem.expired}}</p>
-            <mat-icon *ngIf="!elem.added && elem.percentual !=='- '" style="margin-top: 14px;" (click)="added(elem,'prefer ')">add_circle_outline</mat-icon>
-            <mat-icon *ngIf="!!elem.added && elem.percentual !=='- '" style="margin-top: 14px; color:green">check_circle_outline</mat-icon>
+            <mat-icon *ngIf="!elem.added && elem.percentual !=='-'" style="margin-top: 14px;" (click)="added(elem,'prefer')">add_circle_outline</mat-icon>
+            <mat-icon *ngIf="!!elem.added && elem.percentual !=='-'" style="margin-top: 14px; color:green">check_circle_outline</mat-icon>
         </div>
         <div class="col-12 text-right" style="margin-top: 10px;">
             <span><mat-form-field class="example-form-field">
               <mat-label>Search</mat-label>
               <input matInput type="text"  name="search" [(ngModel)]="valueFilter" >
-              <button mat-button *ngIf="valueFilter" matSuffix mat-icon-button aria-label="Clear">
+              <button mat-button *ngIf="valueFilter" matSuffix mat-icon-button aria-label="Clear" (click)="valueFilter=''">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
@@ -39,19 +39,18 @@
             <mat-tab-group mat-align-tabs=" center ">
                 <mat-tab label="Available">
                     <div class="row  margin-back">
-                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectAvaiable  | appFilter:valueFilter:'search ' | sortBy:'order ':'asc '" [ngClass]="{'pointer-cell ' : !!elem.percentual, 'pointer-disabled
-            ':!elem.percentual }" click='goTo(elem) '>
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectAvaiable  | appFilter:valueFilter:'search' | sortBy:'order':'asc'" [ngClass]="{'pointer-cell ' : !!elem.percentual, 'pointer-disabled':!elem.percentual }" click='goTo(elem) '>
                             <img class="img-prefer" src={{elem.icon}} />
                             <p class=" f-14">{{elem.percentual}} </p>
                             <p class=" f-14">{{elem.expired}}</p>
-                            <mat-icon *ngIf="!elem.added" style="margin-top: 14px;" (click)="added(elem,'avalaible ')">add_circle_outline</mat-icon>
+                            <mat-icon *ngIf="!elem.added" style="margin-top: 14px;" (click)="added(elem,'avalaible')">add_circle_outline</mat-icon>
                             <mat-icon *ngIf="!!elem.added" style="margin-top: 14px; color:green">check_circle_outline</mat-icon>
                         </div>
                     </div>
                 </mat-tab>
                 <mat-tab label="Earned">
                     <div class="row  margin-back" *ngIf="listObjectSelected.length >0">
-                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectSelected |  sortBy:'order ':'asc '" [ngClass]="{'pointer-cell ' : !!elem.percentual, 'pointer-disabled ':!elem.percentual }" click='goTo(elem) '>
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectSelected |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell' : !!elem.percentual, 'pointer-disabled ':!elem.percentual }" click='goTo(elem) '>
                             <img class="img-prefer" src={{elem.icon}} />
                             <p class=" f-14">{{elem.percentual}} </p>
                             <p class=" f-14">{{elem.expired}}</p>
@@ -66,7 +65,7 @@
                 </mat-tab>
                 <mat-tab label="Expired ">
                     <div class="row margin-back " *ngIf="listObjectExpired.length>0">
-                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectExpired |  sortBy:'order ':'asc '" [ngClass]="{'pointer-cell ' : !!elem.percentual, 'pointer-disabled ':!elem.percentual }" click='goTo(elem) '>
+                        <div class="col-3 container-object-small shadow-object" *ngFor="let elem of listObjectExpired |  sortBy:'order':'asc'" [ngClass]="{'pointer-cell ' : !!elem.percentual, 'pointer-disabled ':!elem.percentual }" click='goTo(elem) '>
 
                             <img class="img-prefer" src={{elem.icon}} />
                             <p class=" f-14">{{elem.percentual}} </p>
